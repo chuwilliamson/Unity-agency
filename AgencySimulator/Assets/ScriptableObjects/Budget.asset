@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8636e7385250c844a9b268fa1f15af8e, type: 3}
-  m_Name: E
+  m_Name: Budget
   m_EditorClassIdentifier: 
-  Value: 0
+  Value: 100

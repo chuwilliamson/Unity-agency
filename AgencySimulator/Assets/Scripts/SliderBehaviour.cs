@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using ChuTools.Scripts;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -6,16 +7,35 @@ using UnityEngine.UI;
 
 public class SliderBehaviour : MonoBehaviour
 {
-    public List<Slider> sliders;    
+    public Slider slider;
+    
+    public FloatVariable resourceVariable;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField]
+    private float oldValue;
+
+
+    public float textVariable;
+    private void Start()
     {
-        float sliderTotal = 0;
-        foreach(Slider slider in sliders)
-        {
-            sliderTotal += slider.value;
 
-        }
+        if(slider == null)
+            slider = GetComponent<Slider>();
+        slider.onValueChanged.AddListener(OnSliderValueChanged);
+
+        oldValue = slider.value;
     }
+ 
+    public void OnSliderValueChanged(float value)
+    {
+        float deltaValue = value - oldValue;
+        float newValue = value;
+
+        if ((resourceVariable.Value - deltaValue) > 0)
+            oldValue = value;
+        else
+            slider.value = oldValue;
+    }
+
+
 }
