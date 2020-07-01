@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8636e7385250c844a9b268fa1f15af8e, type: 3}
-  m_Name: E
+  m_Script: {fileID: 11500000, guid: d998f55f22670d7478b4b97f03dbb49d, type: 3}
+  m_Name: New Game Formula
   m_EditorClassIdentifier: 
-  Value: 0
+  Coefs: []
+  Result: 0
+  Description: 
