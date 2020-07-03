@@ -4,10 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Formulas/KPI_A")]
 public class KPI_A : GameFormula
 {
-    private GameFormula CN_BASE;
-    private GameFormula CO_BASE;
+    public GameFormula CN_BASE;
+    public GameFormula CO_BASE;
 
-    private GameFormula SM_BASE;
+    public GameFormula SM_BASE;
 
     public override void Init()
     {

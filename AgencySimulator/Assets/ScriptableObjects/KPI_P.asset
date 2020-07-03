@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KPI_P
   m_EditorClassIdentifier: 
   description: 
-  input: 20
+  input: 50
   KFloats:
   - 1
   - 1
@@ -21,18 +21,8 @@ MonoBehaviour:
   - 1
   numConstants: 4
   numYears: 10
-  Results:
-  - 52.006866
-  - 7252.201
-  - 7252.8623
-  - 7254.021
-  - 7255.6978
-  - 7257.908
-  - 7260.664
-  - 7263.976
-  - 7267.8525
-  - 7272.301
-  B_BASE: {fileID: 11400000, guid: 88feb3249278ade4592da0df4965484f, type: 2}
+  Results: []
+  B_KPI: {fileID: 11400000, guid: 88feb3249278ade4592da0df4965484f, type: 2}
   CS_BASE: {fileID: 11400000, guid: ae72f518f0771014cb30eaabd14a082a, type: 2}
-  U_BASE: {fileID: 11400000, guid: d5d18959fb67c3b4cb96500369dbc7bd, type: 2}
   TR_BASE: {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}
+  U_KPI: {fileID: 11400000, guid: d5d18959fb67c3b4cb96500369dbc7bd, type: 2}

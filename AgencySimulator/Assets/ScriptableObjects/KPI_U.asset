@@ -13,11 +13,24 @@ MonoBehaviour:
   m_Name: KPI_U
   m_EditorClassIdentifier: 
   description: 
-  input: 0
+  input: 50
   KFloats:
   - 1
   - 1
   - 1
   numConstants: 3
   numYears: 10
-  Results: []
+  Results:
+  - NaN
+  - 527.9182
+  - 892.4779
+  - 1233.9421
+  - 1539.1652
+  - 1777.0184
+  - 1849.8014
+  - 1248.845
+  - 68421.58
+  - 5898.3755
+  B_KPI: {fileID: 11400000, guid: 88feb3249278ade4592da0df4965484f, type: 2}
+  CS_BASE: {fileID: 11400000, guid: ae72f518f0771014cb30eaabd14a082a, type: 2}
+  TR_BASE: {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}
