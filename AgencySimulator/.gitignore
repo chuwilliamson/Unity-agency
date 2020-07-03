@@ -3,8 +3,8 @@
 # Edit at https://www.gitignore.io/?templates=unity
 
 # Jetbrain Rider Cache
-.idea/
-Assets/Plugins/Editor/JetBrains*
+/.idea/
+/Assets/Plugins/Editor/JetBrains*
 
 # Visual Studio Code
 .vscode/
@@ -50,3 +50,4 @@ sysinfo.txt
 *.unitypackage
 
 # End of https://www.gitignore.io/api/unity
+/.idea/
