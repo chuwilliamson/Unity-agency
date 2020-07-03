@@ -9,8 +9,8 @@ namespace ChuTools.Scripts
 
         public string Value
         {
-            get { return value; }
-            set { this.value = value; }
+            get => value;
+            set => this.value = value;
         }
     }
 }

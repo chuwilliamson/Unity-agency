@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Global")]
@@ -20,6 +18,4 @@ public class GLOBAL : ScriptableObject
     {
         target.SetActive(!target.activeSelf);
     }
-
-    
 }
