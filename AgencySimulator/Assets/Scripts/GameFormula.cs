@@ -43,7 +43,7 @@ public class GameFormula : ScriptableObject
                                  ( 
                                     (PD / C2) * C3 * SQRT(2 * PI)
                                  )
-                            )
+                            )  
                 (exp(-(((ln((PD/C2)))^2)/ (2*(C3^2))))))))
 */
                 yearResult = C5 * (PCN - 14) /
@@ -56,14 +56,4 @@ public class GameFormula : ScriptableObject
         }
     }
 }
-
-[CustomEditor(typeof(GameFormula))]
-public class GameFormulaEditor : Editor
-{
-    public override void OnInspectorGUI()
-    {
-        DrawDefaultInspector();
-        var myTarget = (GameFormula) target;
-        if (GUILayout.Button("Calculate")) myTarget.Calculate();
-    }
-}
+ 
