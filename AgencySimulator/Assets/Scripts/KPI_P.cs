@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using UnityEngine;
 
+[CreateAssetMenu(menuName = "ScriptableObjects/Formulas/KPI_P")]
 public class KPI_P : GameFormula
 {
     public override void Calculate()

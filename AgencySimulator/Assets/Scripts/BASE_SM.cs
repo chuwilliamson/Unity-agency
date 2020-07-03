@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "ScriptableObjects/Formulas/BASE_SM")]
 public class BASE_SM : GameFormula
 {
     public override void Calculate()

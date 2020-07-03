@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "ScriptableObjects/Formulas/BASE_TR")]
 public class BASE_TR : GameFormula
 {
     public override void Calculate()
