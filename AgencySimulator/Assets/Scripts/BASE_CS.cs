@@ -4,6 +4,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Formulas/BASE_CS")]
 public class BASE_CS : GameFormula
 {
+    public GameFormula PTR_BASE;
+
+    public override void Init()
+    {
+        numConstants = 8;
+    }
+
     public override void Calculate()
     {
         Results = new List<float>();
@@ -19,10 +26,15 @@ public class BASE_CS : GameFormula
         var C1 = KFloats[0];
 
         var PCS = input;
-        var PTR = input;
+
+        //IS this input a reference to an existing TR Calculation?
+        //or
+        //IS this an additional input slider
+
 
         for (var PD = 0; PD < numYears; PD++)
         {
+            var PTR = PTR_BASE.Results[PD];
             var yearResult = 0.0f;
 
             if (PCS >= 25 && PCS > 0.5 * PTR)

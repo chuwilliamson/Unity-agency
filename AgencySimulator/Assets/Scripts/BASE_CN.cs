@@ -4,6 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Formulas/BASE_CN")]
 public class BASE_CN : GameFormula
 {
+    public override void Init()
+    {
+        numConstants = 5;
+    }
+
     public override void Calculate()
     {
         Results = new List<float>();

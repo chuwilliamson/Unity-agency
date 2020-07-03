@@ -4,6 +4,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObjects/Formulas/KPI_B")]
 public class KPI_B : GameFormula
 {
+    public GameFormula A_KPI;
+    public GameFormula CN_BASE;
+    public GameFormula CO_BASE;
+
+    public override void Init()
+    {
+        numConstants = 3;
+    }
+
     public override void Calculate()
     {
         Results = new List<float>();
@@ -13,12 +22,12 @@ public class KPI_B : GameFormula
         var C2 = KFloats[1];
         var C1 = KFloats[0];
 
-        var CO = 1;
-        var CN = 1;
-        var A = 1;
 
         for (var PD = 0; PD < numYears; PD++)
         {
+            var CO = CO_BASE.Results[PD];
+            var CN = CN_BASE.Results[PD];
+            var A = A_KPI.Results[PD];
             var yearResult = 0.0f;
 
             yearResult = 50 + C1 * CO + C2 * CN + C3 * A;

@@ -1,16 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
- 
 
-[CustomEditor(typeof(GameFormula))]
-public class GameFormulaEditor : Editor
+namespace Editor
 {
-    public override void OnInspectorGUI()
+    [CustomEditor(typeof(GameFormula), true ) ]
+    public class GameFormulaEditor : UnityEditor.Editor
     {
-        DrawDefaultInspector();
-        var myTarget = (GameFormula) target;
-        if (GUILayout.Button("Calculate")) myTarget.Calculate();
+        public override void OnInspectorGUI()
+        {
+            DrawDefaultInspector();
+            var myTarget = (GameFormula) target;
+            if (GUILayout.Button("Calculate")) myTarget.Calculate();
+        }
     }
 }

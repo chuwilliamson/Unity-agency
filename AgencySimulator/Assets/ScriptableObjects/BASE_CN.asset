@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 851a65bea944418a9533c9f80729be1e, type: 3}
+  m_Name: BASE_CN
+  m_EditorClassIdentifier: 
+  description: 
+  input: 20
+  KFloats:
+  - 0.75
+  - 0.4
+  - 0.5
+  - 0.2
+  - 2.5
+  numConstants: 5
+  numYears: 10
+  Results:
+  - NaN
+  - -17.416952
+  - -40.498524
+  - -72.82981
+  - -121.42513
+  - -202.72316
+  - -366.52386
+  - -867.893
+  - 32516.377
+  - 1051.0837
