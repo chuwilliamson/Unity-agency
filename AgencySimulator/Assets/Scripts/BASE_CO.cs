@@ -1,18 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BASE_CO
+[CreateAssetMenu(menuName = "ScriptableObjects/Formulas/BASE_CO")]
+public class BASE_CO : GameFormula
 {
-    public int numYears = 10;
-
-    [Range(0, 100)] public float input;
-    public List<float> KFloats;
-
-    [SerializeField] public List<float> Results;
-
-    [TextArea(10, 50)] public string description;
-
-    public void Calculate()
+    public override void Calculate()
     {
         Results = new List<float>();
 
@@ -29,13 +21,13 @@ public class BASE_CO
         for (var PD = 0; PD < numYears; PD++)
         {
             var yearResult = 0.0f;
-            
+
             if (PCO >= 40 && PD < 6)
                 yearResult = Mathf.Sin(Mathf.PI * PD / 10) * 10;
 
             else if (PCO >= 40 && PD >= 6)
-                yearResult = Mathf.Sin(Mathf.PI * (PD + (PCO / (PCO + C6)) * (PD - 5)) / 10) * 100;
-            
+                yearResult = Mathf.Sin(Mathf.PI * (PD + PCO / (PCO + C6) * (PD - 5)) / 10) * 100;
+
             else if (PCO < 40 && PCO >= 20)
                 yearResult = C2 * PCO * PD / 10;
 

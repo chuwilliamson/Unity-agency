@@ -1,17 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BASE_CS
+public class BASE_CS : GameFormula
 {
-    [TextArea(10, 50)] public string description;
-
-    [Range(-100, 100)] public float input;
-    public List<float> KFloats;
-    public int numYears = 10;
-
-    [SerializeField] public List<float> Results;
-
-    public void Calculate()
+    public override void Calculate()
     {
         Results = new List<float>();
 
@@ -33,7 +25,7 @@ public class BASE_CS
             var yearResult = 0.0f;
 
             if (PCS >= 25 && PCS > 0.5 * PTR)
-                yearResult = C6 * (PCS - C7) * C1 * (1 / Mathf.Pow( 1 + Mathf.Exp(-C2 * PD), C3) );
+                yearResult = C6 * (PCS - C7) * C1 * (1 / Mathf.Pow(1 + Mathf.Exp(-C2 * PD), C3));
 
 
             else if (PCS >= 25 && PCS <= 0.5 * PTR)

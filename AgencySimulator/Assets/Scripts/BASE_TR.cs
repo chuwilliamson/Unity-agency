@@ -1,17 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BASE_TR
+public class BASE_TR : GameFormula
 {
-    [TextArea(10, 50)] public string description;
-
-    [Range(-100, 100)] public float input;
-    public List<float> KFloats;
-    public int numYears = 10;
-
-    [SerializeField] public List<float> Results;
-
-    public void Calculate()
+    public override void Calculate()
     {
         Results = new List<float>();
 
