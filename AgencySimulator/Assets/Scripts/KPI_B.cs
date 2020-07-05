@@ -25,9 +25,9 @@ public class KPI_B : GameFormula
 
         for (var PD = 1; PD <= numYears; PD++)
         {
-            var CO = CO_BASE.Results[PD];
-            var CN = CN_BASE.Results[PD];
-            var A = A_KPI.Results[PD];
+            var CO = CO_BASE.input;
+            var CN = CN_BASE.input;
+            var A = A_KPI.input;
             var yearResult = 0.0f;
 
             yearResult = 50 + C1 * CO + C2 * CN + C3 * A;

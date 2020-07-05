@@ -34,7 +34,7 @@ public class BASE_CS : GameFormula
 
         for (var PD = 1; PD <= numYears; PD++)
         {
-            var PTR = PTR_BASE.Results[PD];
+            var PTR = PTR_BASE.input;
             var yearResult = 0.0f;
 
             if (PCS >= 25 && PCS > 0.5 * PTR)

@@ -31,12 +31,12 @@ public class KPI_S : GameFormula
 
         for (var PD = 1; PD <= numYears; PD++)
         {
-            var SM = SM_BASE.Results[PD];
-            var CO = CO_BASE.Results[PD];
-            var TR = TR_BASE.Results[PD];
-            var CS = CS_BASE.Results[PD];
-            var B = B_KPI.Results[PD];
-            var P = P_KPI.Results[PD];
+            var SM = SM_BASE.input;
+            var CO = CO_BASE.input;
+            var TR = TR_BASE.input;
+            var CS = CS_BASE.input;
+            var B = B_KPI.input;
+            var P = P_KPI.input;
 
             var yearResult = 0.0f;
 
