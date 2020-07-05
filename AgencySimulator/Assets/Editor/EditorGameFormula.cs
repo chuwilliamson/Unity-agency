@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace Editor
 {
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(GameFormula), true ) ]
     public class GameFormulaEditor : UnityEditor.Editor
     {
