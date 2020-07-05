@@ -29,7 +29,7 @@ public class KPI_S : GameFormula
         var C1 = KFloats[0];
 
 
-        for (var PD = 0; PD < numYears; PD++)
+        for (var PD = 1; PD <= numYears; PD++)
         {
             var SM = SM_BASE.Results[PD];
             var CO = CO_BASE.Results[PD];

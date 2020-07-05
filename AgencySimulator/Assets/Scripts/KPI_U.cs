@@ -24,7 +24,7 @@ public class KPI_U : GameFormula
         var C1 = KFloats[0];
 
 
-        for (var PD = 0; PD < numYears; PD++)
+        for (var PD = 1; PD <= numYears; PD++)
         {
             var TR = TR_BASE.Results[PD];
             var CS = CS_BASE.Results[PD];

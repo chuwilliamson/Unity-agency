@@ -29,7 +29,7 @@ public class BASE_TR : GameFormula
 
         var PTR = input;
 
-        for (var PD = 0; PD < numYears; PD++)
+        for (var PD = 1; PD <= numYears; PD++)
         {
             var yearResult = 0.0f;
 

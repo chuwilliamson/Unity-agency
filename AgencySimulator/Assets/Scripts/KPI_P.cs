@@ -26,12 +26,12 @@ public class KPI_P : GameFormula
         var C1 = KFloats[0];
 
 
-        for (var PD = 0; PD < numYears; PD++)
+        for (var PD = 1; PD <= numYears; PD++)
         {
-            var TR = TR_BASE.Results[PD];
-            var CS = CS_BASE.Results[PD];
-            var B = B_KPI.Results[PD];
-            var U = U_KPI.Results[PD];
+            var TR = TR_BASE.input;
+            var CS = CS_BASE.input;
+            var B = B_KPI.input;
+            var U = U_KPI.input;
 
 
             var yearResult = 0.0f;

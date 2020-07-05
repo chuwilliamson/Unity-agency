@@ -32,7 +32,7 @@ public class BASE_CS : GameFormula
         //IS this an additional input slider
 
 
-        for (var PD = 0; PD < numYears; PD++)
+        for (var PD = 1; PD <= numYears; PD++)
         {
             var PTR = PTR_BASE.Results[PD];
             var yearResult = 0.0f;
