@@ -14,6 +14,11 @@ public class GLOBAL : ScriptableObject
         Application.Quit();
     }
 
+    public void print(string message)
+    {
+        Debug.Log(message);
+    }
+
     public void Toggle(GameObject target)
     {
         target.SetActive(!target.activeSelf);

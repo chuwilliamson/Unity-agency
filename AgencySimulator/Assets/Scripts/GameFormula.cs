@@ -10,6 +10,10 @@ public abstract class GameFormula : ScriptableObject
 
     public List<float> Results;
 
+    public void ChangeInput(float value)
+    {
+        input = value;
+    }
     public void OnEnable()
     {
         Init();

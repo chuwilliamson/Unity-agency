@@ -1,34 +1,29 @@
-﻿using ChuTools.Scripts;
+﻿using System;
+using ChuTools.Scripts;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SliderBehaviour : MonoBehaviour
 {
-    [SerializeField] private float oldValue;
+    public FloatVariable refValue;
 
-    public FloatVariable resourceVariable;
-    public Slider slider;
-
-
-    public float textVariable;
-
+    [SerializeField] private Slider _slider;
+    public float oldValue;
+    public float remaining;
     private void Start()
     {
-        if (slider == null)
-            slider = GetComponent<Slider>();
-        slider.onValueChanged.AddListener(OnSliderValueChanged);
-
-        oldValue = slider.value;
+        oldValue = _slider.value;
+        refValue.OnPropertyChanged.AddListener(onValueChanged);
     }
 
-    public void OnSliderValueChanged(float value)
+    public void onValueChanged(float value)
     {
-        var deltaValue = value - oldValue;
-        var newValue = value;
-
-        if (resourceVariable.Value - deltaValue > 0)
-            oldValue = value;
-        else
-            slider.value = oldValue;
+        remaining = 100 - refValue.Value;
+        float newValue = oldValue + value;
+        if (newValue >= 100 - refValue.Value)
+            return;
+        _slider.value = newValue;
     }
+ 
 }

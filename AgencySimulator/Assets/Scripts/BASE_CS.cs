@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObjects/Formulas/BASE_CS")]
+[CreateAssetMenu(menuName = "Formulas/BASE_CS")]
 public class BASE_CS : GameFormula
 {
     public GameFormula PTR_BASE;
