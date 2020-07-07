@@ -36,4 +36,6 @@ MonoBehaviour:
   - 191.40727
   - 205.4958
   - 214.59438
+  minClamp: -100
+  maxClamp: 100
   PTR_BASE: {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}

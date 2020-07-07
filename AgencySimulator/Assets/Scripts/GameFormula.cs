@@ -10,6 +10,9 @@ public abstract class GameFormula : ScriptableObject
     public int numYears = 10;
     public List<float> Results;
 
+    public float minClamp;
+    public float maxClamp;
+
     public void ChangeInput(float value)
     {
         input = value;

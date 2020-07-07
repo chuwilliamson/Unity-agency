@@ -54,7 +54,7 @@ public class BASE_CS : GameFormula
                 yearResult = 0 - (C8 - PCS) * C4 * (2 - C5) * (1 / Mathf.Pow(1 + Mathf.Exp(-C2 * PD), C3));
 
 
-            Results.Add(yearResult);
+            Results.Add(Mathf.Clamp(yearResult, minClamp,maxClamp));
         }
     }
 }

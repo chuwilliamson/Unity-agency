@@ -45,7 +45,7 @@ public class BASE_CN : GameFormula
                                         Mathf.Exp(-(Mathf.Pow(Mathf.Log(PD / C2), 2)
                                                     / (2 * Mathf.Pow(C3, 2))))));
 
-            Results.Add(yearResult);
+            Results.Add(Mathf.Clamp(yearResult, minClamp,maxClamp));
         }
     }
 }

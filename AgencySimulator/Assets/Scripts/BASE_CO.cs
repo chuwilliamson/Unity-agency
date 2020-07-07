@@ -39,7 +39,7 @@ public class BASE_CO : GameFormula
             else if (PCO < 10)
                 yearResult = -C4 * (10 - PCO) * Mathf.Pow(PD, C5);
 
-            Results.Add(yearResult);
+            Results.Add(Mathf.Clamp(yearResult, minClamp,maxClamp));
         }
     }
 }

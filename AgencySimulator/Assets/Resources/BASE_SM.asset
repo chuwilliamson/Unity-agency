@@ -32,3 +32,5 @@ MonoBehaviour:
   - 147.39627
   - 162.43776
   - 186.91469
+  minClamp: -100
+  maxClamp: 100

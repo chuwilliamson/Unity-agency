@@ -45,7 +45,7 @@ public class BASE_TR : GameFormula
                 yearResult = 0 - Mathf.Pow(C9 * (Mathf.Pow(20 - PTR, C10) * Mathf.Pow(PD, C11)), C12);
 
 
-            Results.Add(yearResult);
+            Results.Add(Mathf.Clamp(yearResult, minClamp,maxClamp));
         }
     }
 }

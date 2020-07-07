@@ -35,7 +35,8 @@ public class BASE_SM : GameFormula
                     16.56449106 * PD - 2.559440559);
 
 
-            Results.Add((float) yearResult);
+            float fyearResult = Mathf.Clamp((float) yearResult, minClamp, maxClamp);
+            Results.Add(fyearResult);
         }
     }
 }

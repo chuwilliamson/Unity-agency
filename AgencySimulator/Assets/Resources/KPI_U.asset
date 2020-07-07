@@ -31,6 +31,8 @@ MonoBehaviour:
   - 224
   - 224
   - 224
+  minClamp: 0
+  maxClamp: 100
   B_KPI: {fileID: 11400000, guid: 88feb3249278ade4592da0df4965484f, type: 2}
   CS_BASE: {fileID: 11400000, guid: ae72f518f0771014cb30eaabd14a082a, type: 2}
   TR_BASE: {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}

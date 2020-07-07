@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KPI_A
   m_EditorClassIdentifier: 
   description: 
-  input: 50
+  input: 24.1
   KFloats:
   - 1
   - 1
@@ -31,6 +31,8 @@ MonoBehaviour:
   - 153
   - 153
   - 153
+  minClamp: 0
+  maxClamp: 100
   CN_BASE: {fileID: 11400000, guid: 35641f7957aea5f4bbac1aa0098897d0, type: 2}
   CO_BASE: {fileID: 11400000, guid: cfc849d57f19fa6439c5417d4e7f596f, type: 2}
   SM_BASE: {fileID: 11400000, guid: 85f02ce59b417c641a8e7ba9c53f92f4, type: 2}
