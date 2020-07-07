@@ -14,6 +14,10 @@ namespace ChuTools.Scripts
                 Listeners[i].OnEventRaised(args);
         }
 
+        public void Raise()
+        {
+            Raise(null);
+        }
         public void RegisterListener(GameEventListener listener)
         {
             if (Listeners.Contains(listener))

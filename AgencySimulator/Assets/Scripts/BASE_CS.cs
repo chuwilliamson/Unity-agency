@@ -4,6 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Formulas/BASE_CS")]
 public class BASE_CS : GameFormula
 {
+
     public GameFormula PTR_BASE;
 
     public override void Init()

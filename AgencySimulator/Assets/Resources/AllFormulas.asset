@@ -10,9 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a78f8c1f87872e34da96d36e8987741e, type: 3}
-  m_Name: KPI
+  m_Name: AllFormulas
   m_EditorClassIdentifier: 
+  user_game_inputs: []
+  game_formula_inputs: []
   Formulas:
+  - {fileID: 11400000, guid: 35641f7957aea5f4bbac1aa0098897d0, type: 2}
+  - {fileID: 11400000, guid: cfc849d57f19fa6439c5417d4e7f596f, type: 2}
+  - {fileID: 11400000, guid: ae72f518f0771014cb30eaabd14a082a, type: 2}
+  - {fileID: 11400000, guid: 85f02ce59b417c641a8e7ba9c53f92f4, type: 2}
+  - {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}
   - {fileID: 11400000, guid: 0893c14402f94354c8ae7802b6a7c0bb, type: 2}
   - {fileID: 11400000, guid: 88feb3249278ade4592da0df4965484f, type: 2}
   - {fileID: 11400000, guid: 7fdf05a5a0d515f40a0915b836b08cc8, type: 2}

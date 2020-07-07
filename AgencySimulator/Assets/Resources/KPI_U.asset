@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33008055105e62b4a99933e56068c2bd, type: 3}
-  m_Name: KPI_P
+  m_Script: {fileID: 11500000, guid: ef69a0426ab8e8b42b7c2e8cf0912095, type: 3}
+  m_Name: KPI_U
   m_EditorClassIdentifier: 
   description: 
   input: 50
@@ -18,11 +18,19 @@ MonoBehaviour:
   - 1
   - 1
   - 1
-  - 1
-  numConstants: 4
+  numConstants: 3
   numYears: 10
-  Results: []
+  Results:
+  - 224
+  - 224
+  - 224
+  - 224
+  - 224
+  - 224
+  - 224
+  - 224
+  - 224
+  - 224
   B_KPI: {fileID: 11400000, guid: 88feb3249278ade4592da0df4965484f, type: 2}
   CS_BASE: {fileID: 11400000, guid: ae72f518f0771014cb30eaabd14a082a, type: 2}
   TR_BASE: {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}
-  U_KPI: {fileID: 11400000, guid: d5d18959fb67c3b4cb96500369dbc7bd, type: 2}

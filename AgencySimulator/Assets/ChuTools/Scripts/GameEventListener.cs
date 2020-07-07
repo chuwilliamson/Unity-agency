@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using ChuTools.Attributes;
 using UnityEngine;
 
 namespace ChuTools.Scripts
 {
     public class GameEventListener : MonoBehaviour
     {
+        [ScriptVariable(typeof(GameEvent))]
         public GameEvent GameEvent;
         public List<GameEventArgsResponse> Responses;
 

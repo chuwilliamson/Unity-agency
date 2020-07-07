@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic; 
+﻿using System.Collections.Generic;
+using ChuTools.Scripts;
 using UnityEngine;
 public abstract class GameFormula : ScriptableObject
 {
@@ -7,7 +8,6 @@ public abstract class GameFormula : ScriptableObject
     public List<float> KFloats;
     public int numConstants;
     public int numYears = 10;
-
     public List<float> Results;
 
     public void ChangeInput(float value)

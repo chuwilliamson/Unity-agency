@@ -9,26 +9,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f9aebc679a1e64487847808f5c57c6, type: 3}
-  m_Name: BASE_SM
+  m_Script: {fileID: 11500000, guid: 6ed158513e3d47c28f41012d4c646610, type: 3}
+  m_Name: BASE_CO
   m_EditorClassIdentifier: 
   description: 
-  input: 20
+  input: 24
   KFloats:
-  - 9
-  - 10
-  - 10
-  - 4
-  numConstants: 4
+  - 20
+  - 2
+  - 0.4
+  - 1
+  - 2
+  - 500
+  numConstants: 6
   numYears: 10
   Results:
-  - -2.8153846
-  - 12.769231
-  - 23.702564
-  - 30.916666
-  - 35.34359
-  - 37.915386
-  - 39.564102
-  - 41.221794
-  - 43.82051
-  - 48.29231
+  - 4.8
+  - 9.6
+  - 14.4
+  - 19.2
+  - 24
+  - 28.8
+  - 33.6
+  - 38.4
+  - 43.2
+  - 48
