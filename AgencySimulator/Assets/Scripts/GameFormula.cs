@@ -1,22 +1,27 @@
 ﻿using System.Collections.Generic;
-using ChuTools.Scripts;
 using UnityEngine;
+
 public abstract class GameFormula : ScriptableObject
 {
-    [TextArea(10, 50)] public string description;
-    [Range(0, 100)] public float input;
+    [TextArea(10, 50)]
+    public string description;
+
+    [Range(0, 100)]
+    public float input;
+
     public List<float> KFloats;
+    public float maxClamp;
+
+    public float minClamp;
     public int numConstants;
     public int numYears = 10;
     public List<float> Results;
-
-    public float minClamp;
-    public float maxClamp;
 
     public void ChangeInput(float value)
     {
         input = value;
     }
+
     public void OnEnable()
     {
         Init();

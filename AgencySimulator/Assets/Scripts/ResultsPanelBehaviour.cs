@@ -1,20 +1,28 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Globalization;
+﻿using System.Collections.Generic;
 using ChartAndGraph;
+using ChuTools.Attributes;
 using Michsky.UI.ModernUIPack;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 public class ResultsPanelBehaviour : MonoBehaviour
 {
-    public GameFormula Formula;
-    public List<float> results;
+    [SerializeField]
+    private FormulaSliderBehaviour _formulaSliderBehaviour;
 
-    [FormerlySerializedAs("labels")] public List<ButtonManager> buttonManagers;
+    [FormerlySerializedAs("labels")]
+    public List<ButtonManager> buttonManagers;
+
+    public GameObject constantInputFields;
+    public Transform constantInputFieldsParent;
+    [ScriptVariable(typeof(GameFormula))]
+    public GameFormula Formula;
+
+    public GraphChart graph;
+    public UnityEvent OnStart;
+    public List<float> results;
     public TMP_Text Tip;
 
     private void Start()
@@ -22,40 +30,50 @@ public class ResultsPanelBehaviour : MonoBehaviour
         Tip.text = Formula.name;
         buttonManagers = new List<ButtonManager>(GetComponentsInChildren<ButtonManager>());
         results = new List<float>();
-        SetResults();
+        var index = 0;
+        _formulaSliderBehaviour.SetFormula(Formula);
+
+        Formula.KFloats.ForEach(f =>
+        {
+            var go = Instantiate(constantInputFields, constantInputFieldsParent);
+            var formulaInputFieldBehaviour = go.GetComponent<FormulaInputFieldBehaviour>();
+            formulaInputFieldBehaviour.Formula = Formula;
+            formulaInputFieldBehaviour.Index = index;
+            index++;
+            formulaInputFieldBehaviour.OnEndEdit.AddListener(Calculate);
+            formulaInputFieldBehaviour.OnEndEdit.AddListener(SetResults);
+        });
+
+        OnStart.Invoke();
     }
 
     public void SetResults()
     {
         results.Clear();
         results.AddRange(Formula.Results);
-    }
-
-    public void Populate()
-    {
-        SetResults();
-
-        for (int i = 0; i < results.Count; i++)
+        for (var i = 0; i < results.Count; i++)
         {
-            buttonManagers[i].buttonText = results[i].ToString(CultureInfo.CurrentCulture);
+            buttonManagers[i].buttonText = results[i].ToString();
             buttonManagers[i].UpdateUI();
         }
     }
 
-    public GraphChart graph;
-    void SetGraphResults()
+    public void Calculate()
+    {
+        Formula.Calculate();
+    }
+
+    public void SetGraphResults()
     {
         graph = GetComponent<GraphChart>();
         if (graph != null)
         {
             graph.DataSource.StartBatch(); // start a new update batch 
-     
+
 
             for (var i = 0; i < results.Count; i++)
-            {
-//add 30 random points , each with a category and an x,y value 
-                graph.DataSource.AddPointToCategory("Period" + " " + i.ToString(),  results[i], 0);
-            }
+                //add 30 random points , each with a category and an x,y value 
+                graph.DataSource.AddPointToCategory("Period" + " " + i, results[i], 0);
 
             graph.DataSource.EndBatch(); // end the update batch . this call will render the graph 
         }

@@ -39,7 +39,7 @@ public class KPI_P : GameFormula
             yearResult = 50 + C1 * TR + C2 * CS + C3 * B + C4 * U;
 
 
-            Results.Add(Mathf.Clamp(yearResult, minClamp,maxClamp));
+            Results.Add(Mathf.Clamp(yearResult, minClamp, maxClamp));
         }
     }
 }

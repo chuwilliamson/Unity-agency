@@ -1,22 +1,21 @@
-﻿using System;
-using ChuTools.Attributes;
+﻿using ChuTools.Attributes;
 using ChuTools.Scripts;
 using Michsky.UI.ModernUIPack;
 using UnityEngine;
 using UnityEngine.Serialization;
-using UnityEngine.UI;
 
 /// <summary>
-/// use this script to change the value of a slider to the value of a target reference variable
+///     use this script to change the value of a slider to the value of a target reference variable
 /// </summary>
 public class RadialSliderSetValueBehaviour : MonoBehaviour
 {
     [FormerlySerializedAs("targetValue")]
     [ScriptVariable(typeof(FloatVariable))]
     public FloatVariable refValue;
+
     public FloatVariable remainingValue;
     public RadialSlider slider;
-    
+
     private void Start()
     {
         refValue.OnPropertyChanged.AddListener(OnRefValueChanged);
