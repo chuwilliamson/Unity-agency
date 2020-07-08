@@ -282,8 +282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ae5816a300c0d4dab9e8c28cbd59d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Formula: {fileID: 11400000, guid: 35641f7957aea5f4bbac1aa0098897d0, type: 2}
   _slider: {fileID: 1697281477514947436}
+  Formula: {fileID: 11400000, guid: 35641f7957aea5f4bbac1aa0098897d0, type: 2}
+  Title: {fileID: 1960288332513248574}
 --- !u!114 &1373392427048418849
 MonoBehaviour:
   m_ObjectHideFlags: 0
