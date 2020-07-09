@@ -18,13 +18,23 @@ public class FormulaSliderBehaviour : MonoBehaviour
     {
         Formula.ChangeInput(input);
     }
-
+/*
+ *ToDo:
+1. ENter number of players
+2. ENter player names and entry parameters
+3. show results for all players for first KPI 
+4. Iterate through all KPIs
+5. Show final scores for all users (average of all KPIs)
+6. Option to go to menu or play again
+ */
     private void Start()
     {
         _slider.sliderEvent.AddListener(SetInput);
         Title.SetText(Formula.name);
         _slider.mainSlider.value = Formula.input;
-        _slider.onValueChanged.AddListener((s)=>
+        
+        
+        _slider.sliderEvent.AddListener((s)=>
         {
             Formula.Calculate();
         });

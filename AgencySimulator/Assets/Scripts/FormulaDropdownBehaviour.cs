@@ -21,6 +21,8 @@ public class FormulaDropdownBehaviour : MonoBehaviour
     private Transform resultsParent;
 
     [SerializeField]
+    private GameObject textFieldPrefab;
+    [SerializeField]
     private GameObject inputFieldPrefab;
     [SerializeField]
     private Transform constantsParent;
@@ -29,37 +31,46 @@ public class FormulaDropdownBehaviour : MonoBehaviour
         _dropdown.dropdownItems.Clear();
         foreach (var formula in _formulaContainer.Formulas)
         {
+            formula.OnCalculate.AddListener(()=>CreateResults(formula));
+            
             var item = new CustomDropdown.Item();
             item.itemName = formula.name;
             item.OnItemSelection = new UnityEvent();
             item.OnItemSelection.AddListener(() =>
             {
                 _formulaSliderBehaviour.SetFormula(formula);
-                DestroyChildren(resultsParent);
-                
-                for (var i = 0; i < formula.Results.Count; i++)
-                { 
-                    var go = Instantiate(new GameObject("result"), resultsParent);
-                    var text = go.AddComponent<TextMeshProUGUI>();
-                    text.enableAutoSizing = true;
-                    text.SetText(formula.Results[i].ToString());
-                }
+                CreateResults(formula);
 
-                DestroyChildren(constantsParent);
-                for (var i = 0; i < formula.numConstants; i++)
-                {
-                    var go = Instantiate(inputFieldPrefab, constantsParent);
-                    var inputFieldBehaviour = go.GetComponent<FormulaInputFieldBehaviour>();
-                    inputFieldBehaviour.Init(i, formula);
-                }
-                
-                
-                
+                CreateConstants(formula);
             });
             _dropdown.dropdownItems.Add(item);
             _dropdown.SetupDropdown();
         }
     }
+
+    private void CreateConstants(GameFormula formula)
+    {
+        DestroyChildren(constantsParent);
+        for (var i = 0; i < formula.numConstants; i++)
+        {
+            var go = Instantiate(inputFieldPrefab, constantsParent);
+            var inputFieldBehaviour = go.GetComponent<FormulaInputFieldBehaviour>();
+            inputFieldBehaviour.Init(i, formula);
+        }
+    }
+
+    private void CreateResults(GameFormula formula)
+    {
+        DestroyChildren(resultsParent);
+
+        for (var i = 0; i < formula.Results.Count; i++)
+        {
+            var go = Instantiate(textFieldPrefab, resultsParent);
+            var text = go.GetComponent<TMP_Text>();
+            text.SetText(formula.Results[i].ToString());
+        }
+    }
+
 
     private void DestroyChildren(Transform parent)
     {
