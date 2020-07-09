@@ -29,23 +29,25 @@ public class FormulaDropdownBehaviour : MonoBehaviour
     private void Start()
     {
         _dropdown.dropdownItems.Clear();
+        
         foreach (var formula in _formulaContainer.Formulas)
         {
             formula.OnCalculate.AddListener(()=>CreateResults(formula));
             
             var item = new CustomDropdown.Item();
             item.itemName = formula.name;
-            item.OnItemSelection = new UnityEvent();
+            if(item.OnItemSelection==null)
+                item.OnItemSelection = new UnityEvent();
             item.OnItemSelection.AddListener(() =>
             {
                 _formulaSliderBehaviour.SetFormula(formula);
                 CreateResults(formula);
-
                 CreateConstants(formula);
             });
+            
             _dropdown.dropdownItems.Add(item);
-            _dropdown.SetupDropdown();
         }
+        _dropdown.SetupDropdown();
     }
 
     private void CreateConstants(GameFormula formula)
