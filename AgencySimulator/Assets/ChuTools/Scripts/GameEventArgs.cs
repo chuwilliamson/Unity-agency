@@ -4,9 +4,9 @@ using UnityEngine;
 namespace ChuTools.Scripts
 {
     [CreateAssetMenu]
-    public class GameEventArgs : ScriptableObject 
+    public class GameEventArgs : ScriptableObject
     {
-        public List<GameEventArgsListener > Listeners = new List<GameEventArgsListener >();
+        public List<GameEventArgsListener> Listeners = new List<GameEventArgsListener>();
 
         public void Raise(params object[] args)
         {
@@ -25,7 +25,7 @@ namespace ChuTools.Scripts
             Listeners.Add(listener);
         }
 
-        public void UnregisterListener(GameEventArgsListener  listener)
+        public void UnregisterListener(GameEventArgsListener listener)
         {
             if (!Listeners.Contains(listener))
             {

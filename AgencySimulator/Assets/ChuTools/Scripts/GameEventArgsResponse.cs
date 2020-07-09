@@ -4,7 +4,7 @@ using UnityEngine.Events;
 namespace ChuTools.Scripts
 {
     [Serializable]
-    public class GameEventArgsResponse : UnityEvent<object[]> 
+    public class GameEventArgsResponse : UnityEvent<object[]>
     {
     }
 }

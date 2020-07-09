@@ -1,5 +1,8 @@
 ﻿using UnityEngine.Events;
 
-public class PropertyChangedEvent : UnityEvent<float>
+namespace ChuTools.Scripts
 {
+    public class PropertyChangedEvent : UnityEvent<float>
+    {
+    }
 }

@@ -4,10 +4,11 @@ using UnityEngine;
 
 namespace ChuTools.Scripts
 {
-    public class GameEventArgsListener : MonoBehaviour 
+    public class GameEventArgsListener : MonoBehaviour
     {
         [ScriptVariable(typeof(GameEventArgs))]
         public GameEventArgs GameEvent;
+
         public List<GameEventArgsResponse> Responses;
 
         public void OnEventRaised(object[] args)

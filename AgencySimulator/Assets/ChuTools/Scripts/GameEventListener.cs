@@ -8,6 +8,7 @@ namespace ChuTools.Scripts
     {
         [ScriptVariable(typeof(GameEvent))]
         public GameEvent GameEvent;
+
         public List<GameEventArgsResponse> Responses;
 
         public void OnEventRaised(object[] args)

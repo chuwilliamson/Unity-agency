@@ -1,6 +1,4 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Events;
+﻿using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace ChuTools.Scripts
@@ -8,15 +6,11 @@ namespace ChuTools.Scripts
     [CreateAssetMenu(menuName = "FloatVariable")]
     public class FloatVariable : ScriptableObject
     {
-        public PropertyChangedEvent OnPropertyChanged;
         [SerializeField]
-        [FormerlySerializedAs("Value")] private float _value;
+        [FormerlySerializedAs("Value")]
+        private float _value;
 
-        private void OnEnable()
-        {
-            if(OnPropertyChanged == null)
-                OnPropertyChanged= new PropertyChangedEvent();
-        }
+        public PropertyChangedEvent OnPropertyChanged;
 
         public float Value
         {
@@ -27,6 +21,12 @@ namespace ChuTools.Scripts
                     OnPropertyChanged.Invoke(_value);
             }
             get => _value;
+        }
+
+        private void OnEnable()
+        {
+            if (OnPropertyChanged == null)
+                OnPropertyChanged = new PropertyChangedEvent();
         }
     }
 }

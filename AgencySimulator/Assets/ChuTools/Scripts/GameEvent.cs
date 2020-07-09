@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ChuTools.Scripts
 {
     [CreateAssetMenu]
-    public class GameEvent : ScriptableObject 
+    public class GameEvent : ScriptableObject
     {
         public List<GameEventListener> Listeners = new List<GameEventListener>();
 
@@ -18,6 +18,7 @@ namespace ChuTools.Scripts
         {
             Raise(null);
         }
+
         public void RegisterListener(GameEventListener listener)
         {
             if (Listeners.Contains(listener))
