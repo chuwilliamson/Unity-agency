@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class GameFormula : ScriptableObject
 {
@@ -17,6 +18,7 @@ public abstract class GameFormula : ScriptableObject
     public int numYears = 10;
     public List<float> Results;
 
+    public UnityEvent OnCalculate;
     public void ChangeInput(float value)
     {
         input = value;
@@ -35,6 +37,7 @@ public abstract class GameFormula : ScriptableObject
 
     public virtual void Calculate()
     {
+        OnCalculate.Invoke();
     }
 
     public virtual void Init()

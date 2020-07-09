@@ -11,10 +11,7 @@ public class FormulaInputFieldBehaviour : MonoBehaviour
 
     [ScriptVariable(typeof(GameFormula))]
     public GameFormula Formula;
-
-    public UnityEvent OnEndEdit;
-
-    public TMP_Text titleText;
+ 
     public int Index { get; set; } = 0;
 
     // Update is called once per frame
@@ -24,17 +21,20 @@ public class FormulaInputFieldBehaviour : MonoBehaviour
             _inputField = GetComponent<TMP_InputField>();
 
         _inputField.onEndEdit.AddListener(onEndEdit);
-        var display = string.Format("C{0}", Index);
-        titleText = transform.Find("Placeholder").GetComponent<TMP_Text>();
-
-        titleText.SetText(display);
-        _inputField.text = Formula.KFloats[Index].ToString();
     }
 
+    public void Init(int index, GameFormula formula)
+    {
+        Index = index;
+        Formula = formula;
+        _inputField.text = formula.KFloats[index].ToString();
+    }
+    
     private void onEndEdit(string arg0)
     {
         var value = float.Parse(arg0);
         Formula.KFloats[Index] = value;
-        OnEndEdit.Invoke();
+        Formula.Calculate();
+        
     }
 }

@@ -40,6 +40,7 @@ public class BASE_CO : GameFormula
                 yearResult = -C4 * (10 - PCO) * Mathf.Pow(PD, C5);
 
             Results.Add(Mathf.Clamp(yearResult, minClamp,maxClamp));
+            base.Calculate();
         }
     }
 }

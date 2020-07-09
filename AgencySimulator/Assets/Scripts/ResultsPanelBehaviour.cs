@@ -40,8 +40,6 @@ public class ResultsPanelBehaviour : MonoBehaviour
             formulaInputFieldBehaviour.Formula = Formula;
             formulaInputFieldBehaviour.Index = index;
             index++;
-            formulaInputFieldBehaviour.OnEndEdit.AddListener(Calculate);
-            formulaInputFieldBehaviour.OnEndEdit.AddListener(SetResults);
         });
 
         OnStart.Invoke();

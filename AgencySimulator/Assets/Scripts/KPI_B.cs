@@ -34,6 +34,7 @@ public class KPI_B : GameFormula
 
 
             Results.Add(Mathf.Clamp(yearResult, minClamp, maxClamp));
+            base.Calculate();
         }
     }
 }

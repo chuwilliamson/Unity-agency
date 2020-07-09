@@ -37,6 +37,7 @@ public class BASE_SM : GameFormula
 
             float fyearResult = Mathf.Clamp((float) yearResult, minClamp, maxClamp);
             Results.Add(fyearResult);
+            base.Calculate();
         }
     }
 }

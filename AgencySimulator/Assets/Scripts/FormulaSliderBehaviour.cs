@@ -23,6 +23,11 @@ public class FormulaSliderBehaviour : MonoBehaviour
     {
         _slider.sliderEvent.AddListener(SetInput);
         Title.SetText(Formula.name);
+        _slider.mainSlider.value = Formula.input;
+        _slider.onValueChanged.AddListener((s)=>
+        {
+            Formula.Calculate();
+        });
     }
 
     private void OnEnable()
@@ -35,4 +40,5 @@ public class FormulaSliderBehaviour : MonoBehaviour
         Formula = gameFormula;
         Title.SetText(Formula.name);
     }
+    
 }
