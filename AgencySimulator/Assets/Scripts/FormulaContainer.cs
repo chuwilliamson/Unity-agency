@@ -5,8 +5,6 @@ using UnityEngine;
 public class FormulaContainer : ScriptableObject
 {
     public List<GameFormula> Formulas;
-    public List<float> game_formula_inputs;
-    public List<float> user_game_inputs;
 
     public void Calculate()
     {

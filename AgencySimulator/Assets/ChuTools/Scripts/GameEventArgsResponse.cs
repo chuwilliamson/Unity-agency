@@ -7,4 +7,7 @@ namespace ChuTools.Scripts
     public class GameEventArgsResponse : UnityEvent<object[]>
     {
     }
+    
+    [System.Serializable]
+    public class GameEventResponse: UnityEvent{}
 }

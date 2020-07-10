@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BASE_CS
   m_EditorClassIdentifier: 
   description: 
-  input: 41
+  input: 20
   KFloats:
   - 50
   - 0.5
@@ -23,19 +23,22 @@ MonoBehaviour:
   - 0.3
   - 24
   - 25
+  maxClamp: 100
+  minClamp: -100
   numConstants: 8
   numYears: 10
   Results:
-  - 2.0039759
-  - 10.007016
-  - 30.623564
-  - 64.497246
-  - 104.27228
-  - 141.17917
-  - 170.44266
-  - 191.40727
-  - 205.4958
-  - 214.59438
-  minClamp: -100
-  maxClamp: 100
+  - -0.21829802
+  - -1.090089
+  - -3.3359
+  - -7.0258436
+  - -11.358636
+  - -15.378994
+  - -18.566738
+  - -20.850464
+  - -22.385162
+  - -23.376293
+  OnCalculate:
+    m_PersistentCalls:
+      m_Calls: []
   PTR_BASE: {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}

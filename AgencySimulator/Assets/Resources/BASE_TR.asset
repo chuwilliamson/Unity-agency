@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BASE_TR
   m_EditorClassIdentifier: 
   description: 
-  input: 83
+  input: 20
   KFloats:
   - 0.4
   - 0.4
@@ -27,18 +27,21 @@ MonoBehaviour:
   - 0.4
   - 1.2
   - 1.75
+  maxClamp: 100
+  minClamp: -100
   numConstants: 12
   numYears: 10
   Results:
-  - 3.5997875
-  - 18.999798
-  - 50.27684
-  - 100
-  - 100
-  - 100
-  - 100
-  - 100
-  - 100
-  - 100
-  minClamp: -100
-  maxClamp: 100
+  - 0.20118935
+  - 0.8625178
+  - 2.0209692
+  - 3.6976943
+  - 5.908021
+  - 8.664084
+  - 11.975978
+  - 15.852365
+  - 20.300856
+  - 25.328243
+  OnCalculate:
+    m_PersistentCalls:
+      m_Calls: []

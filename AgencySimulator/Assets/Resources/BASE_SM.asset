@@ -13,24 +13,27 @@ MonoBehaviour:
   m_Name: BASE_SM
   m_EditorClassIdentifier: 
   description: 
-  input: 46
+  input: 20
   KFloats:
   - 9
   - 10
   - 10
   - 4
+  maxClamp: 100
+  minClamp: -100
   numConstants: 4
   numYears: 10
   Results:
-  - 42.95105
-  - 79.72681
-  - 103.992424
-  - 118.88298
-  - 127.53357
-  - 133.07925
-  - 138.65512
-  - 147.39627
-  - 162.43776
-  - 186.91469
-  minClamp: -100
-  maxClamp: 100
+  - 12.769231
+  - 23.702564
+  - 30.916666
+  - 35.34359
+  - 37.915386
+  - 39.564102
+  - 41.221794
+  - 43.82051
+  - 48.29231
+  - 55.56923
+  OnCalculate:
+    m_PersistentCalls:
+      m_Calls: []

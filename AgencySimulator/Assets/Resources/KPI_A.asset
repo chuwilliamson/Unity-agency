@@ -13,26 +13,29 @@ MonoBehaviour:
   m_Name: KPI_A
   m_EditorClassIdentifier: 
   description: 
-  input: 24.1
+  input: 22.6
   KFloats:
-  - 1
-  - 1
-  - 1
+  - 0.25
+  - 0.55
+  - 0.2
+  maxClamp: 100
+  minClamp: 0
   numConstants: 3
   numYears: 10
   Results:
-  - 153
-  - 153
-  - 153
-  - 153
-  - 153
-  - 153
-  - 153
-  - 153
-  - 153
-  - 153
-  minClamp: 0
-  maxClamp: 100
+  - 60.754402
+  - 70.25908
+  - 80.19324
+  - 83.906265
+  - 86.77315
+  - 90.4995
+  - 94.77647
+  - 99.54289
+  - 100
+  - 100
+  OnCalculate:
+    m_PersistentCalls:
+      m_Calls: []
   CN_BASE: {fileID: 11400000, guid: 35641f7957aea5f4bbac1aa0098897d0, type: 2}
   CO_BASE: {fileID: 11400000, guid: cfc849d57f19fa6439c5417d4e7f596f, type: 2}
   SM_BASE: {fileID: 11400000, guid: 85f02ce59b417c641a8e7ba9c53f92f4, type: 2}

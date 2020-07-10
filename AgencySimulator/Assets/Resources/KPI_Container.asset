@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a78f8c1f87872e34da96d36e8987741e, type: 3}
+  m_Name: KPI_Container
+  m_EditorClassIdentifier: 
+  Formulas:
+  - {fileID: 11400000, guid: 0893c14402f94354c8ae7802b6a7c0bb, type: 2}
+  - {fileID: 11400000, guid: 88feb3249278ade4592da0df4965484f, type: 2}
+  - {fileID: 11400000, guid: 7fdf05a5a0d515f40a0915b836b08cc8, type: 2}
+  - {fileID: 11400000, guid: 14b97748998e00a49a95def38906a9ba, type: 2}
+  - {fileID: 11400000, guid: d5d18959fb67c3b4cb96500369dbc7bd, type: 2}
+  game_formula_inputs: []
+  user_game_inputs: []

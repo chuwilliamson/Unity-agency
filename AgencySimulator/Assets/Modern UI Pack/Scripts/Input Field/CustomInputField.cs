@@ -46,10 +46,10 @@ namespace Michsky.UI.ModernUIPack
                 inputFieldAnimator.Play(inAnim);
             }
 
-            else if (isClicked == false)
+            /*else if (isClicked == false)
             {
                 inputFieldAnimator.Play(outAnim);
-            }
+            }*/
         }
 
         public void Animate()
