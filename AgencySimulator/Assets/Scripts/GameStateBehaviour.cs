@@ -105,7 +105,7 @@ public class GameStateBehaviour : MonoBehaviour
     public IEnumerator SlideValues()
     { 
         sliderInputs = SliderManagers.Select(s => s.mainSlider.value).ToList();
-        
+        var radialStart = RadialSlider.SliderValue;
         while (timer < duration)
         {
             t = timer / duration;
@@ -114,10 +114,10 @@ public class GameStateBehaviour : MonoBehaviour
                 SliderManagers[i].mainSlider.value = Mathf.Lerp(sliderInputs[i], 0, ac.Evaluate(t));
             }
 
-            RadialSlider.SliderValue = Mathf.Lerp(100, 0, ac.Evaluate(t));
+            RadialSlider.SliderValue = Mathf.Lerp(radialStart, 0, ac.Evaluate(t));
             RadialSlider.UpdateUI();
             
-            timer = timer + Time.deltaTime;
+            timer += Time.deltaTime; 
             
             yield return null;
         } 

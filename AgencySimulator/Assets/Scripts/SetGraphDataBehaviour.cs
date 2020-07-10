@@ -4,24 +4,32 @@ using UnityEngine;
 
 public class SetGraphDataBehaviour : MonoBehaviour
 {
-    public GraphChart graph;
-
+    public BarChart barChart;
+    [SerializeField]
+    private Material playerMaterial;
+    [SerializeField]
+    private Material chartMaterial;
     [ScriptVariable(typeof(GameFormula))]
     public GameFormula target;
-
-    public void SetResults()
+    void Start () 
     {
-        if (graph != null)
+        var pcount = 1;
+        playerMaterial = Instantiate(playerMaterial);
+        chartMaterial = Instantiate(chartMaterial);
+        for (int i = 0; i < pcount; i++)
         {
-            graph.DataSource.StartBatch(); // start a new update batch 
-
-            var results = target.Results;
-            for (var i = 0; i < results.Count; i++)
-                //add 30 random points , each with a category and an x,y value 
-
-                graph.DataSource.AddPointToCategory("Player 1", i * 5, results[i]);
-
-            graph.DataSource.EndBatch(); // end the update batch . this call will render the graph 
+            barChart.DataSource.AddCategory("Player"+i.ToString(),playerMaterial );    
         }
-    }
+
+        for (int i = 0; i < target.Results.Count; i++)
+        {
+            var pname = string.Format("Period{0}", i);
+            Debug.Log("adding category for " +pname);
+            barChart.DataSource.AddGroup(pname);  
+            
+        }
+        
+        barChart.DataSource.SetValue("Player0", "Period0",target.Results[0]);
+      
+    }  
 }

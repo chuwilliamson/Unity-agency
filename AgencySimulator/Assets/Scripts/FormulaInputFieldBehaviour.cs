@@ -20,7 +20,7 @@ public class FormulaInputFieldBehaviour : MonoBehaviour
         if (_inputField == null)
             _inputField = GetComponent<TMP_InputField>();
 
-        _inputField.onEndEdit.AddListener(onEndEdit);
+        _inputField.onSubmit.AddListener(onEndEdit);
     }
 
     public void Init(int index, GameFormula formula)
@@ -28,6 +28,7 @@ public class FormulaInputFieldBehaviour : MonoBehaviour
         Index = index;
         Formula = formula;
         _inputField.text = formula.KFloats[index].ToString();
+        _inputField.ForceLabelUpdate();
     }
     
     private void onEndEdit(string arg0)

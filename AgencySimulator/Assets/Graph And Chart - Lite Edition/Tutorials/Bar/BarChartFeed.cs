@@ -9,6 +9,7 @@ public class BarChartFeed : MonoBehaviour {
         {
             barChart.DataSource.SetValue("Player 1", "Value 1", Random.value * 20);
             barChart.DataSource.SlideValue("Player 2", "Value 1", Random.value * 20, 40f);
+            
         }
     }
     private void Update()
