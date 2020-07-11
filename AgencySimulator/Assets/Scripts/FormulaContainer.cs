@@ -5,7 +5,8 @@ using UnityEngine;
 public class FormulaContainer : ScriptableObject
 {
     public List<GameFormula> Formulas;
-
+    public GameFormula this[int index] => Formulas[index];
+    
     public void Calculate()
     {
         Formulas.ForEach(f => f.Calculate());

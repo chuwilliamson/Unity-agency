@@ -1,34 +1,24 @@
-﻿using UnityEngine;
-using System.Collections;
-using ChartAndGraph;
+﻿using System;
 using System.Collections.Generic;
-using System;
+using ChartAndGraph;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class BarRunChart : MonoBehaviour
 {
-
-    class RunChartEntry
-    {
-        public RunChartEntry(string name,double amount)
-        {
-            Name = name;
-            Amount = amount;
-        }
-        public string Name;
-        public double Amount;
-    }
+    private readonly List<RunChartEntry> mEntries = new List<RunChartEntry>();
+    public Material SourceMaterial;
 
     public float switchTime = 0.1f;
-    float switchTimeCounter =0f;
 
-    List<RunChartEntry> mEntries = new List<RunChartEntry>();
-    public Material SourceMaterial;
+    private float switchTimeCounter;
+
     // Use this for initialization
-    void Start()
+    private void Start()
     {
         switchTimeCounter = switchTime;
 
-        
+
         var bar = GetComponent<BarChart>();
         bar.TransitionTimeBetaFeature = switchTime;
         bar.DataSource.ClearCategories();
@@ -36,32 +26,27 @@ public class BarRunChart : MonoBehaviour
         bar.DataSource.AddGroup("Default");
 
         // generate a random run chart
-        for (int i = 0; i < 10; i++)
+        for (var i = 0; i < 10; i++)
         {
-            string categoryName = "Item " + i;
-            mEntries.Add(new RunChartEntry(categoryName, UnityEngine.Random.value * 10));
-            Material mat = new Material(SourceMaterial);
+            var categoryName = "Item " + i;
+            mEntries.Add(new RunChartEntry(categoryName, Random.value * 10));
+            var mat = new Material(SourceMaterial);
             mat.color = new Color(
-      UnityEngine.Random.Range(0f, 1f),
-      UnityEngine.Random.Range(0f, 1f),
-      UnityEngine.Random.Range(0f, 1f)
-  );
+                Random.Range(0f, 1f),
+                Random.Range(0f, 1f),
+                Random.Range(0f, 1f)
+            );
             bar.DataSource.AddCategory(categoryName, mat);
         }
-
-
     }
 
-    void AddValuesToCategories()
+    private void AddValuesToCategories()
     {
-
-        for (int i = 0; i < mEntries.Count; i++)
-        {
-            mEntries[i].Amount += UnityEngine.Random.Range(-0.3f, 0.3f);
-        }
+        for (var i = 0; i < mEntries.Count; i++) mEntries[i].Amount += Random.Range(-0.3f, 0.3f);
     }
+
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         // changes are timed 
         switchTimeCounter -= Time.deltaTime;
@@ -70,21 +55,26 @@ public class BarRunChart : MonoBehaviour
             switchTimeCounter = switchTime;
             var bar = GetComponent<BarChart>();
             //position the categories according to the currently displayed values
-            for (int i = 0; i < mEntries.Count; i++)
-            {
-                bar.DataSource.MoveCategory(mEntries[i].Name, i);
-            }
+            for (var i = 0; i < mEntries.Count; i++) bar.DataSource.MoveCategory(mEntries[i].Name, i);
             // add the changes
             AddValuesToCategories();
             // sort the changes
-            mEntries.Sort((x, y) => (int)Math.Sign(x.Amount - y.Amount));
+            mEntries.Sort((x, y) => Math.Sign(x.Amount - y.Amount));
             // animate the transition to the next values
-            for (int i = 0; i < mEntries.Count; i++)
-            {
-
+            for (var i = 0; i < mEntries.Count; i++)
                 bar.DataSource.SlideValue(mEntries[i].Name, "Default", mEntries[i].Amount, switchTime);
-            }
+        }
+    }
 
+    private class RunChartEntry
+    {
+        public double Amount;
+        public readonly string Name;
+
+        public RunChartEntry(string name, double amount)
+        {
+            Name = name;
+            Amount = amount;
         }
     }
 }
