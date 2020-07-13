@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KPI_A
   m_EditorClassIdentifier: 
   description: 
-  input: 22.6
+  input: 50
   KFloats:
   - 0.25
   - 0.55

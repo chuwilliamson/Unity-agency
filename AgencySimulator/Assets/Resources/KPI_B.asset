@@ -15,24 +15,27 @@ MonoBehaviour:
   description: 
   input: 50
   KFloats:
-  - 1
-  - 1
-  - 1
+  - 0.3
+  - 0.6
+  - 0.1
+  maxClamp: 100
+  minClamp: 0
   numConstants: 3
   numYears: 10
   Results:
-  - 157
-  - 157
-  - 157
-  - 157
-  - 157
-  - 157
-  - 157
-  - 157
-  - 157
-  - 157
-  minClamp: 0
-  maxClamp: 100
+  - 67.96173
+  - 78.426216
+  - 93.011536
+  - 90.40173
+  - 86.56022
+  - 86.07537
+  - 87.2907
+  - 89.31758
+  - 91.29189
+  - 93.420616
+  OnCalculate:
+    m_PersistentCalls:
+      m_Calls: []
   A_KPI: {fileID: 11400000, guid: 0893c14402f94354c8ae7802b6a7c0bb, type: 2}
   CN_BASE: {fileID: 11400000, guid: 35641f7957aea5f4bbac1aa0098897d0, type: 2}
   CO_BASE: {fileID: 11400000, guid: cfc849d57f19fa6439c5417d4e7f596f, type: 2}

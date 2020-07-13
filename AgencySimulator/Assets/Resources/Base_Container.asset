@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a78f8c1f87872e34da96d36e8987741e, type: 3}
   m_Name: Base_Container
   m_EditorClassIdentifier: 
-  Formulas: []
+  Formulas:
+  - {fileID: 11400000, guid: 35641f7957aea5f4bbac1aa0098897d0, type: 2}
+  - {fileID: 11400000, guid: cfc849d57f19fa6439c5417d4e7f596f, type: 2}
+  - {fileID: 11400000, guid: ae72f518f0771014cb30eaabd14a082a, type: 2}
+  - {fileID: 11400000, guid: 85f02ce59b417c641a8e7ba9c53f92f4, type: 2}
+  - {fileID: 11400000, guid: 90be96569c3c06c48813c8d3c8f21636, type: 2}

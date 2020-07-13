@@ -23,13 +23,13 @@ public class FormulaContainer : ScriptableObject
             }
         }
     }
+    
 
     public void Calculate()
     {
         Formulas.ForEach(
             f => { f.Calculate(); });
     }
-
 
     public List<float> Calculate(string formulaName, float input)
     {

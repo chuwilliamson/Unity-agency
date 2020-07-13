@@ -32,7 +32,8 @@ public class GameStateBehaviour : MonoBehaviour
     public GameEventResponse ErrorNotificationShow;
 
     public FormulaContainer FormulaContainerRef;
-
+    public FormulaContainer BaseFormulas;
+    public FormulaContainer KPIFormulas;
     [SerializeField, ScriptVariable(typeof(GameEventArgs))]
     private GameEventArgs InputComplete;
 
@@ -44,6 +45,8 @@ public class GameStateBehaviour : MonoBehaviour
     [SerializeField]
     private GameEventResponse InvalidCharacterNotificationShow;
 
+    [SerializeField]
+    private GameEventResponse OnSuccessfulNameEntered;
     [SerializeField]
     private GameEventResponse OpenInputWindowResponse;
 
@@ -144,7 +147,18 @@ public class GameStateBehaviour : MonoBehaviour
         {
             Inputs = SliderManagers.Select(sm=> sm.mainSlider.value).ToList(),
             Name = playerName
+            
         };
+
+        var sliderindex = 0;
+        foreach (var formula in BaseFormulas.Formulas)
+        {
+            formula.input = sliderInputs[sliderindex];
+            formula.Calculate();
+            player.ResultsDictionary.Add(formula.name, formula.Results);
+            sliderindex++;
+        }
+        
 
         Players.Add(player);
 
@@ -154,14 +168,14 @@ public class GameStateBehaviour : MonoBehaviour
         }
         else
         {
-            ResetInputWindow();
+            OnSuccessfulNameEntered.Invoke();
         }
     }
 
     [Serializable]
     public class PlayerObject
     {
-        public Dictionary<GameFormula, float> Results;
+        public Dictionary<string, List<float>> ResultsDictionary;
         public List<float> Inputs;
         public string Name;
 

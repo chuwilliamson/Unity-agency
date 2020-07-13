@@ -15,27 +15,27 @@ MonoBehaviour:
   description: "C1\t0.1\tC2\t0.1\tC3\t0.2\tC4\t0.4\tC5\t0.05\tC6\t0.15\r\n"
   input: 50
   KFloats:
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
-  - 1
+  - 0.1
+  - 0.1
+  - 0.2
+  - 0.4
+  - 0.05
+  - 0.15
   maxClamp: 100
   minClamp: 0
   numConstants: 6
   numYears: 10
   Results:
-  - 344
-  - 344
-  - 344
-  - 344
-  - 344
-  - 344
-  - 344
-  - 344
-  - 344
-  - 344
+  - 70.42793
+  - 72.62804
+  - 74.212074
+  - 74.18365
+  - 73.7577
+  - 73.641396
+  - 74.055214
+  - 75.07822
+  - 76.699936
+  - 78.943085
   OnCalculate:
     m_PersistentCalls:
       m_Calls: []
