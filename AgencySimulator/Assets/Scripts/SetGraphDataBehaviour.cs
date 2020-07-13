@@ -18,8 +18,7 @@ public class SetGraphDataBehaviour : MonoBehaviour
 
     void Start()
     {
-        formulaReference = FormulaContainer[0];
-        
+
     }
 
     public List<PlayerObject> Players;
@@ -27,7 +26,7 @@ public class SetGraphDataBehaviour : MonoBehaviour
 
     public void SetPlayers()
     {
-        Players = new List<PlayerObject>(GameStateBehaviour.Players);
+        Players = new List<PlayerObject>(GameStateBehaviour.sPlayers);
     }
 
     [ContextMenu("SetGraphValues")]
@@ -69,11 +68,14 @@ public class SetGraphDataBehaviour : MonoBehaviour
                 var group = year.ToString();
                 Debug.Log("getting " + formulaReference.name);
                 var results = player.ResultsDictionary[formulaReference.name];
-                barChart.DataSource.SetValue(category, group, results[j]);
+                barChart.DataSource.SlideValue(category, group, results[j],1);
                 
             }
+            barChart.InternalGenerateChart();
+            
             year++;
         }
+        
     }
 
     private void SetFormula(GameFormula formula)

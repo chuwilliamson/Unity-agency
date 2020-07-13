@@ -55,9 +55,9 @@ public class GameStateBehaviour : MonoBehaviour
     [SerializeField]
     private GameEventArgsResponse PlayerNameEntered;
 
-    [SerializeField]
-    public static List<PlayerObject> Players = new List<PlayerObject>();
 
+    public static List<PlayerObject> sPlayers = new List<PlayerObject>();
+    
     public RadialSlider RadialSlider;
 
     [SerializeField]
@@ -165,11 +165,15 @@ public class GameStateBehaviour : MonoBehaviour
             player.ResultsDictionary.Add(formula.name, formula.Results);
             
         }
+
+        player.values = new List<List<float>>();
+        foreach(var value in player.ResultsDictionary)
+            player.values.Add(value.Value);
         
 
-        Players.Add(player);
+        sPlayers.Add(player);
 
-        if (Players.Count >= playerCount)
+        if (sPlayers.Count >= playerCount)
         {
             InputComplete.Raise(this);
         }
