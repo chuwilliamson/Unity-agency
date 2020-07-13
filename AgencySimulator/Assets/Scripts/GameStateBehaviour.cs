@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -57,7 +56,7 @@ public class GameStateBehaviour : MonoBehaviour
     private GameEventArgsResponse PlayerNameEntered;
 
     [SerializeField]
-    private List<PlayerObject> Players = new List<PlayerObject>();
+    public static List<PlayerObject> Players = new List<PlayerObject>();
 
     public RadialSlider RadialSlider;
 
@@ -146,17 +145,25 @@ public class GameStateBehaviour : MonoBehaviour
         var player = new PlayerObject()
         {
             Inputs = SliderManagers.Select(sm=> sm.mainSlider.value).ToList(),
-            Name = playerName
+            Name = playerName,
+            ResultsDictionary = new Dictionary<string, List<float>>()
+            
             
         };
 
         var sliderindex = 0;
-        foreach (var formula in BaseFormulas.Formulas)
+        sliderInputs = SliderManagers.Select(s => s.mainSlider.value).ToList();
+        foreach (var formula in FormulaContainerRef.Formulas)
         {
-            formula.input = sliderInputs[sliderindex];
+            if (sliderindex < 4)
+            {
+                formula.input = sliderInputs[sliderindex];
+                sliderindex++;    
+            }
+            
             formula.Calculate();
             player.ResultsDictionary.Add(formula.name, formula.Results);
-            sliderindex++;
+            
         }
         
 
@@ -172,12 +179,5 @@ public class GameStateBehaviour : MonoBehaviour
         }
     }
 
-    [Serializable]
-    public class PlayerObject
-    {
-        public Dictionary<string, List<float>> ResultsDictionary;
-        public List<float> Inputs;
-        public string Name;
 
-    }
 }
