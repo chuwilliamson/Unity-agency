@@ -14,38 +14,14 @@ using UnityEngine.Serialization;
 
 public class GameStateBehaviour : MonoBehaviour
 {
-    [Header("Events")]
-    [SerializeField]
-    [ScriptVariable(typeof(GameEventArgs))]
-    private GameEventArgs InvalidBudgetAmountEvent;
-
-    [SerializeField, ScriptVariable(typeof(GameEventArgs))]
-    private GameEventArgs InputComplete;
-
-    [SerializeField]
-    private GameEventArgsResponse PlayerNameEntered;
-
-    [SerializeField]
-    public GameEventResponse ErrorNotificationShow;
-
-    [SerializeField]
-    private GameEventResponse InvalidCharacterNotificationShow;
-
-    [SerializeField]
-    private GameEventResponse OpenInputWindowResponse;
-
     [Header("References")]
     [SerializeField]
     private TMP_InputField _playerNameInputField;
 
-    public FormulaContainer FormulaContainerRef;
-
     [SerializeField]
     private WindowManager _windowManager;
 
-    public RadialSlider RadialSlider;
-
-    public List<SliderManager> SliderManagers;
+    public AnimationCurve ac;
 
 
     [Header("Configuration")]
@@ -53,15 +29,44 @@ public class GameStateBehaviour : MonoBehaviour
     private float duration = 3;
 
     [SerializeField]
+    public GameEventResponse ErrorNotificationShow;
+
+    public FormulaContainer FormulaContainerRef;
+
+    [SerializeField, ScriptVariable(typeof(GameEventArgs))]
+    private GameEventArgs InputComplete;
+
+    [Header("Events")]
+    [SerializeField]
+    [ScriptVariable(typeof(GameEventArgs))]
+    private GameEventArgs InvalidBudgetAmountEvent;
+
+    [SerializeField]
+    private GameEventResponse InvalidCharacterNotificationShow;
+
+    [SerializeField]
+    private GameEventResponse OpenInputWindowResponse;
+
+    [SerializeField]
     public float playerCount;
+
+    [SerializeField]
+    private GameEventArgsResponse PlayerNameEntered;
 
     [SerializeField]
     private List<PlayerObject> Players = new List<PlayerObject>();
 
+    public RadialSlider RadialSlider;
+
+    [SerializeField]
+    private List<float> sliderInputs;
+
+    public List<SliderManager> SliderManagers;
+
+    public float t;
+
     [SerializeField]
     private float timer = 0;
-
-    public AnimationCurve ac;
 
     public void OnValidatePlayerCount(object[] args)
     {
@@ -89,6 +94,9 @@ public class GameStateBehaviour : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(nameof(SlideValues));
+        _playerNameInputField.SetTextWithoutNotify("");
+        _playerNameInputField.gameObject.SetActive(false);
+        _playerNameInputField.gameObject.SetActive(true);
     }
 
     private void Start()
@@ -97,11 +105,6 @@ public class GameStateBehaviour : MonoBehaviour
        
     }
 
-    [SerializeField]
-    private List<float> sliderInputs;
-
-    public float t;
-    
     public IEnumerator SlideValues()
     { 
         sliderInputs = SliderManagers.Select(s => s.mainSlider.value).ToList();
@@ -139,17 +142,9 @@ public class GameStateBehaviour : MonoBehaviour
 
         var player = new PlayerObject()
         {
-            FormulaContainer = Instantiate(FormulaContainerRef) as FormulaContainer,
+            Inputs = SliderManagers.Select(sm=> sm.mainSlider.value).ToList(),
             Name = playerName
         };
-
-        
-        
-        for (var i = 0; i < player.FormulaContainer.Formulas.Count; i++)
-        {
-            var clone = Instantiate(player.FormulaContainer.Formulas[i]);
-            player.FormulaContainer.Formulas[i] = clone;
-        }
 
         Players.Add(player);
 
@@ -166,7 +161,9 @@ public class GameStateBehaviour : MonoBehaviour
     [Serializable]
     public class PlayerObject
     {
-        public FormulaContainer FormulaContainer;
+        public Dictionary<GameFormula, float> Results;
+        public List<float> Inputs;
         public string Name;
+
     }
 }

@@ -20,6 +20,6 @@ public class InputFieldBehaviour : MonoBehaviour
         }
             
                 
-        _inputField.onEndEdit.AddListener((s)=>OnEndEditEvent.Raise(new object[]{this, s}));
+        _inputField.onSubmit.AddListener((s)=>OnEndEditEvent.Raise(new object[]{this, s}));
     }
 }
